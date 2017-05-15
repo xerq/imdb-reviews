@@ -11,6 +11,10 @@
   "keywords": ["imdb", "reviews", "review", "movie", "movies"],
   "author": "xerq",
   "license": "MIT",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/xerq/imdb-reviews.git"
+  },
   "devDependencies": {
     "mocha": "^3.4.1"
   },
