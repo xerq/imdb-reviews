@@ -1,0 +1,24 @@
+{
+  "name": "imdb-reviews",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/*.js",
+    "test-main": "mocha tests/main.js",
+    "test-hack": "mocha tests/hack.js"
+  },
+  "keywords": ["imdb", "reviews", "review", "movie", "movies"],
+  "author": "xerq",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.4.1"
+  },
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "promise": "^7.1.1",
+    "queue": "^4.2.1",
+    "request": "^2.81.0",
+    "url": "^0.11.0"
+  }
+}
