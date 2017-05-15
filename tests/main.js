@@ -6,6 +6,7 @@ describe("Testing the main(not hack) module", function() {
     describe("Get reviews of movie " + "http://www.imdb.com/title/tt0068646", function() {
         it("Should return at least one review", function(done) {
             imdbReviews.getByURL("http://www.imdb.com/title/tt0068646", 2).then(function(result) {
+                console.log(result);
                 var reviews = result.reviews;
                 done(reviews.length > 0 ? null : new Error("reviews length is 0"));
             }).catch(done);
