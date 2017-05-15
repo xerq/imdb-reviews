@@ -10,6 +10,20 @@ describe("Testing the hack", function() {
                 done(reviews.length === 20 ? null : new Error("reviews length is less than 20"));
             }).catch(done);
         }).timeout(10000);
+
+        it("Should return 5 reviews", function(done) {
+            imdbReviews.getByURL("http://www.imdb.com/title/tt0068646", 0, 5).then(function(result) {
+                var reviews = result.reviews;
+                done(reviews.length === 5 ? null : new Error("reviews length is not 5"));
+            }).catch(done);
+        }).timeout(10000);
+
+        it("Should return 3 reviews", function(done) {
+            imdbReviews.getByURL("http://www.imdb.com/title/tt0068646", 0, 3).then(function(result) {
+                var reviews = result.reviews;
+                done(reviews.length === 3 ? null : new Error("reviews length is not 3"));
+            }).catch(done);
+        }).timeout(10000);
     });
 
     var atLeastOneReviewURLs = ["http://www.imdb.com/title/tt2118775/", "http://www.imdb.com/title/tt0454349/", "http://www.imdb.com/title/tt3792960/", "http://www.imdb.com/title/tt4244162/"];
