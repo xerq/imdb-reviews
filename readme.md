@@ -32,7 +32,7 @@ imdbReviews.getByURL("http://www.imdb.com/title/tt0068646", 2).then(function(res
 
 ```javascript
 var imdbReviews = require("imdb-reviews")({
-    useHack: false
+    useHack: true
 });
 
 imdbReviews.getByURL("http://www.imdb.com/title/tt0068646", 0, 50).then(function(result) {
