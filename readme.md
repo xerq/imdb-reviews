@@ -22,7 +22,20 @@ npm install imdb-reviews
 ```javascript
 var imdbReviews = require("imdb-reviews")();
 
-imdbReviews.getByURL("http://www.imdb.com/title/tt0068646", 2).then(function(result) {
+// by url
+imdbReviews.get({
+    uri: "http://www.imdb.com/title/tt0068646", 
+    maxPages: 2
+    }).then(function(result) {
+    console.log("Reviews: ", result.reviews);
+    console.log("Max pages: ", result.maxPages);
+}).catch(console.error);
+
+// by id
+imdbReviews.get({
+    id: "tt0068646", 
+    maxPages: 2
+    }).then(function(result) {
     console.log("Reviews: ", result.reviews);
     console.log("Max pages: ", result.maxPages);
 }).catch(console.error);
@@ -35,7 +48,22 @@ var imdbReviews = require("imdb-reviews")({
     useHack: true
 });
 
-imdbReviews.getByURL("http://www.imdb.com/title/tt0068646", 0, 50).then(function(result) {
+// by url
+imdbReviews.get({
+    uri: "http://www.imdb.com/title/tt0068646", 
+    offset: 0, 
+    count: 50
+    }).then(function(result) {
+    console.log("Reviews: ", result.reviews);
+    console.log("Max pages: ", result.maxPages);
+}).catch(console.error);
+
+// by id
+imdbReviews.get({
+    id: "tt0068646", 
+    offset: 0, 
+    count: 50
+    }).then(function(result) {
     console.log("Reviews: ", result.reviews);
     console.log("Max pages: ", result.maxPages);
 }).catch(console.error);
@@ -50,7 +78,20 @@ import _imdbReviews from "imdb-reviews";
 
 const imdbReviews = _imdbReviews();
 
-imdbReviews.getByURL("http://www.imdb.com/title/tt0068646", 2).then((result) => {
+// by url
+imdbReviews.get({
+    uri: "http://www.imdb.com/title/tt0068646", 
+    maxPages: 2
+    }).then((result) => {
+    console.log(`Reviews: ${result.reviews}`);
+    console.log(`Max pages: ${result.maxPages}`);
+}).catch(console.error);
+
+// by id
+imdbReviews.get({
+    id: "tt0068646", 
+    maxPages: 2
+    }).then((result) => {
     console.log(`Reviews: ${result.reviews}`);
     console.log(`Max pages: ${result.maxPages}`);
 }).catch(console.error);
@@ -65,7 +106,22 @@ const imdbReviews = _imdbReviews({
     useHack: true
 });
 
-imdbReviews.getByURL("http://www.imdb.com/title/tt0068646", 0, 50).then((result) => {
+// by url
+imdbReviews.get({
+    uri: "http://www.imdb.com/title/tt0068646", 
+    offset: 0, 
+    count: 50
+    }).then((result) => {
+    console.log(`Reviews: ${result.reviews}`);
+    console.log(`Max pages: ${result.maxPages}`);
+}).catch(console.error);
+
+// by id
+imdbReviews.get({
+    id: "tt0068646", 
+    offset: 0, 
+    count: 50
+    }).then((result) => {
     console.log(`Reviews: ${result.reviews}`);
     console.log(`Max pages: ${result.maxPages}`);
 }).catch(console.error);
@@ -81,16 +137,24 @@ var imdbReviews = require("imdb-reviews")({
 
 ## Methods
 
-### Without hack
-
-#### `getByURL(url, maxPages)`
+#### `get(options)`
 Promise, if succeed returns object with `reviews` and `maxPages`
 
-### With hack
-#### `getByURL(url, offset, maxReviews)`
-Promise, if succeed returns object with `reviews` and `maxPages`
+### Properties of `options`:
+`uri` - url of imdb movie/series**
 
-## Example object returned by calling `imdbReviews.getByURL("http://www.imdb.com/title/tt0068646", 2)` :
+`id` - id of imdb movie/series**
+
+`offset` - starting point (default 0)
+
+`count` - maxiumum reviews to scrap (default 10)
+
+`maxPages` - maxiumum number of pages to scrap (default 1)
+
+
+** - choose one, don't need to set both
+
+## Example object returned by calling `imdbReviews.get({ url: "http://www.imdb.com/title/tt0068646", maxPages: 2})` :
 ```javascript
 { 
     reviews: 
