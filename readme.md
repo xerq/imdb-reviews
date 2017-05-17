@@ -1,4 +1,4 @@
-# imdb-reviews
+# imdb-reviews [![NPM version](https://badge.fury.io/js/imdb-reviews.svg)](http://badge.fury.io/js/imdb-reviews) [![Build Status](https://travis-ci.org/xerq/imdb-reviews.svg?branch=master)](https://travis-ci.org/xerq/imdb-reviews)
 
 Javascript module for getting reviews of movie/series from imdb
 
