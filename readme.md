@@ -158,7 +158,7 @@ Promise, if succeed returns object with `reviews` and `maxPages`
 
 ** - choose one, don't need to set both
 
-## Example object returned by calling `imdbReviews.get({ url: "http://www.imdb.com/title/tt0068646", maxPages: 2})` :
+## Example object returned by calling `imdbReviews.get({ url: "http://www.imdb.com/title/tt0068646", maxPages: 2})`
 ```javascript
 { 
     reviews: 
