@@ -4,8 +4,10 @@ Javascript module for getting reviews of movie/series from imdb
 
 ## Features:
 
- * Get reviews by URL
+ * Get reviews by URL or ID
  * Set currentPage/offset and how many pages/reviews should the module scrap
+ * Set filter
+ * Hide spoilers
  * Hack version allowing to get more reviews than default(10) from one page/request, it's also faster
 
 ## Installation
