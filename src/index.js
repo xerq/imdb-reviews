@@ -18,7 +18,8 @@ var getReviews = function(options) {
             uri: options.uri,
             id: options.id, 
             offset: 0,
-            count: 10,
+            filter: options.filter,
+            hideSpoilers: options.hideSpoilers,
         });
 
         get(pageURL).then(function(result) {
@@ -35,7 +36,7 @@ var getReviews = function(options) {
             if(currentPage < maxPages) {
                 var q = queue();
                 q.concurrency = 2;
-                q.timeout = 4000;
+                q.timeout = 10000;
 
                 for(var page = currentPage; page < maxPages; page+=1) {
                     var currPage = page;
@@ -43,9 +44,10 @@ var getReviews = function(options) {
                         get(makeURL({
                             uri: pageURL, 
                             offset: currPage*10,
-                            count: 10,
+                            filter: options.filter,
+                            hideSpoilers: options.hideSpoilers,
                             })).then(function(result) {
-                            result.reviews.map(function(review) {
+                                result.reviews.map(function(review) {
                                 reviews.push(review);
                             });
 

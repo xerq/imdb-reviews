@@ -8,7 +8,7 @@ describe("Testing the hack", function() {
             imdbReviews.get({
                 uri: "http://www.imdb.com/title/tt0068646", 
                 offset: 2, 
-                count: 20
+                count: 20,
             }).then(function(result) {
                 var reviews = result.reviews;
                 done(reviews.length === 20 ? null : new Error("reviews length is less than 20"));
@@ -19,7 +19,7 @@ describe("Testing the hack", function() {
             imdbReviews.get({
                 uri: "http://www.imdb.com/title/tt0068646", 
                 offset: 0, 
-                count: 5
+                count: 5,
             }).then(function(result) {
                 var reviews = result.reviews;
                 done(reviews.length === 5 ? null : new Error("reviews length is not 5"));
@@ -30,7 +30,7 @@ describe("Testing the hack", function() {
             imdbReviews.get({
                 uri: "http://www.imdb.com/title/tt0068646", 
                 offset: 0, 
-                count: 3
+                count: 3,
             }).then(function(result) {
                 var reviews = result.reviews;
                 done(reviews.length === 3 ? null : new Error("reviews length is not 3"));
@@ -55,12 +55,12 @@ describe("Testing the hack", function() {
         describe("Get reviews of " + url, function() {
             it("Should return at least one review", function(done) {
                 imdbReviews.get({
-                    uri: url
+                    uri: url,
                 }).then(function(result) {
                     var reviews = result.reviews;
                     done(reviews.length > 0 ? null : new Error("reviews length is 0"));
                 }).catch(done);
-            }).timeout(3000);
+            }).timeout(6000);
         });
     });
 
@@ -73,12 +73,12 @@ describe("Testing the hack", function() {
         describe("Get reviews of " + id, function() {
             it("Should return at least one review", function(done) {
                 imdbReviews.get({
-                    id
+                    id,
                 }).then(function(result) {
                     var reviews = result.reviews;
                     done(reviews.length > 0 ? null : new Error("reviews length is 0"));
                 }).catch(done);
-            }).timeout(3000);
+            }).timeout(6000);
         });
     });
 });

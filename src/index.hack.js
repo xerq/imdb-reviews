@@ -21,6 +21,8 @@ var getReviews = function(options) {
             id: options.id,
             offset: options.offset, 
             count: options.count,
+            filter: options.filter,
+            hideSpoilers: options.hideSpoilers,
         });
 
         get(pageURL).then(function(result) {

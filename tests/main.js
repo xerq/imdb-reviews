@@ -7,7 +7,7 @@ describe("Testing the main(not hack) module", function() {
         it("Should return 20 reviews", function(done) {
             imdbReviews.get({
                 uri: "http://www.imdb.com/title/tt0068646", 
-                maxPages: 2
+                maxPages: 2,
             }).then(function(result) {
                 var reviews = result.reviews;
                 done(reviews.length === 20 ? null : new Error("reviews length is not 20"));
@@ -36,12 +36,13 @@ describe("Testing the main(not hack) module", function() {
         describe("Get reviews of " + url, function() {
             it("Should return at least one review", function(done) {
                 imdbReviews.get({
-                    uri: url
+                    uri: url,
+                    filter: "profilic_authors",
                 }).then(function(result) {
                     var reviews = result.reviews;
                     done(reviews.length > 0 ? null : new Error("reviews length is 0"));
                 }).catch(done);
-            }).timeout(3000);
+            }).timeout(6000);
         });
     });
 
@@ -54,7 +55,7 @@ describe("Testing the main(not hack) module", function() {
         describe("Get reviews of " + id, function() {
             it("Should return at least one review", function(done) {
                 imdbReviews.get({
-                    id
+                    id,
                 }).then(function(result) {
                     var reviews = result.reviews;
                     done(reviews.length > 0 ? null : new Error("reviews length is 0"));

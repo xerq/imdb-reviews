@@ -1,10 +1,16 @@
 var url = require("url");
 
-module.exports = function(options) {
-    if(!options.uri && !options.id) {
-        throw new Error("You didn't specify uri or id");
-    }
+var filters = {
+    "best": "best",
+    "chronological": "chrono",
+    "prolific_authors": "prolific",
+    "loved_it": "love",
+    "hated_it": "hate"
+};
 
+module.exports = function(options) {
+    options.filter = filters[options.filter] || filters["best"];
+    options.hideSpoilers = options.hideSpoilers || false;
     options.offset = options.offset || 0;
     options.count = options.count || 10;
 
@@ -18,22 +24,15 @@ module.exports = function(options) {
         return path != "reviews";
     }).join("/");
 
-    var newQuery = {};
-
-    if(imdbURL.query) {
-        Object.keys(imdbURL.query).map(function(queryKey) {
-            if(queryKey != "start") {
-                return newQuery[queryKey] = imdbURL.query[queryKey];
-            }
-        });
-    }
-    else {
-        imdbURL.query = {};
-    }
-
     imdbURL.pathname = imdbURL.pathname.endsWith("/") ? imdbURL.pathname : imdbURL.pathname + "/";
 
-    var query = "start=" + options.offset + ";count=" + options.count;
+    imdbURL.query = {};
+
+    var query = "start=" + options.offset + (options.count ? ";count=" + options.count : "") + "&filter=" + options.filter;
+
+    if(options.hideSpoilers) {
+        query += "&spoiler=hide";
+    }
 
     return url.resolve(url.format(imdbURL), "reviews?" + query);
 };

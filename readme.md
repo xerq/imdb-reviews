@@ -145,11 +145,15 @@ Promise, if succeed returns object with `reviews` and `maxPages`
 
 `id` - id of imdb movie/series**
 
-`offset` - starting point (default 0)
+`offset` - starting point (default `0`)
 
-`count` - maxiumum reviews to scrap (default 10)
+`count` - maxiumum reviews to scrap (default `10`)
 
-`maxPages` - maxiumum number of pages to scrap (default 1)
+`maxPages` - maxiumum number of pages to scrap (default `1`)
+
+`filter` - filter the reviews by `best`, `chronological`, `prolific_authors`, `loved_it`, `hated_it` (default `best`)
+
+`hideSpoilers` - hide spoilers (default `false`)
 
 
 ** - choose one, don't need to set both
