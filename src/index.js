@@ -64,7 +64,7 @@ var getReviews = function(options) {
 
                     resolve({
                         reviews,
-                        maxPages,
+                        maxPages: result.maxPages,
                     });
                 });
 
@@ -73,7 +73,7 @@ var getReviews = function(options) {
 
             resolve({
                 reviews,
-                maxPages,
+                maxPages: result.maxPages,
             });
         });
     });
