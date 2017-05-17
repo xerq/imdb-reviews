@@ -1,8 +1,5 @@
 var Promise = require("promise");
-var request = require("request");
-var cheerio = require("cheerio");
 var queue = require("queue");
-var url = require("url");
 var makeURL = require("./makeURL.js");
 var get = require("./get.js");
 
@@ -24,8 +21,7 @@ var getReviews = function(options) {
             count: 10,
         });
 
-        get(pageURL)
-        .then(function(result) {
+        get(pageURL).then(function(result) {
             if(result.maxPages < maxPages) {
                 maxPages = result.maxPages;
             }

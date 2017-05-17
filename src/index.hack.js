@@ -1,10 +1,6 @@
 // NOTE: this module uses a query that is not easily accessible by user on page, it may stop working any time, but it's faster
 
 var Promise = require("promise");
-var request = require("request");
-var cheerio = require("cheerio");
-var queue = require("queue");
-var url = require("url");
 var makeURL = require("./makeURL.js");
 var get = require("./get.js");
 
@@ -27,8 +23,7 @@ var getReviews = function(options) {
             count: options.count,
         });
 
-        get(pageURL)
-        .then(function(result) {
+        get(pageURL).then(function(result) {
             var maxPages = result.maxPages;
             var currentPage = result.currentPage;
 
