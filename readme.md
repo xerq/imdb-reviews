@@ -2,7 +2,7 @@
 
 Javascript module for getting reviews of movie/series from imdb
 
-## Features:
+## Features
 
  * Get reviews by URL or ID
  * Set currentPage/offset and how many pages/reviews should the module scrap
@@ -17,9 +17,9 @@ npm install imdb-reviews
 
 ## Usage
 
-### ES5:
+### ES5
 
-#### Without hack:
+#### Without hack
 
 ```javascript
 var imdbReviews = require("imdb-reviews")();
@@ -43,7 +43,7 @@ imdbReviews.get({
 }).catch(console.error);
 ```
 
-#### With hack:
+#### With hack
 
 ```javascript
 var imdbReviews = require("imdb-reviews")({
@@ -71,9 +71,9 @@ imdbReviews.get({
 }).catch(console.error);
 ```
 
-### ES6:
+### ES6
 
-#### Without hack:
+#### Without hack
 
 ```javascript
 import _imdbReviews from "imdb-reviews";
@@ -99,7 +99,7 @@ imdbReviews.get({
 }).catch(console.error);
 ```
 
-#### With hack:
+#### With hack
 
 ```javascript
 import _imdbReviews from "imdb-reviews";
